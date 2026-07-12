@@ -19,8 +19,8 @@ export function CookieConsentBanner() {
     localStorage.setItem(CONSENT_KEY, "accepted");
     setVisible(false);
     // Update GA consent mode if already loaded
-    if (typeof window !== "undefined" && typeof (window as { gtag?: Function }).gtag === "function") {
-      (window as { gtag: Function }).gtag("consent", "update", { analytics_storage: "granted" });
+    if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag === "function") {
+      (window as unknown as { gtag: (...a: unknown[]) => void }).gtag("consent", "update", { analytics_storage: "granted" });
     }
   }
 

@@ -131,7 +131,7 @@ export function Footer() {
             </p>
           </div>
           <p className="text-xs text-background/40 sm:max-w-xl sm:text-right">
-            {LEGAL.disclaimer}
+            {LEGAL.disclaimer.short}
           </p>
         </div>
       </Container>

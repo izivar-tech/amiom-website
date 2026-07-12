@@ -12,7 +12,9 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://amiom.com";
+
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://amiom.in";
 const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {

@@ -13,12 +13,15 @@
   "dependencies": {
     "@amiom/constants": "workspace:*",
     "@amiom/ui": "workspace:*",
+    "@react-email/components": "^1.0.12",
     "@vercel/edge-config": "^1.4.3",
     "framer-motion": "^12.12.2",
     "lucide-react": "^0.511.0",
     "next": "^15.3.3",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "resend": "^6.17.2",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.8",
