@@ -62,7 +62,7 @@ export function HomeHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl font-extrabold leading-[1.1] tracking-tight text-[#192b3d] sm:text-4xl lg:text-5xl"
+              className="text-2xl font-bold leading-[1.15] tracking-tight text-[#192b3d] sm:text-3xl lg:text-4xl"
             >
               Smart Loans.
               <br />

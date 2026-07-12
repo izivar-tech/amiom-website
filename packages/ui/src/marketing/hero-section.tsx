@@ -109,7 +109,7 @@ export function HeroSection({
           )}
 
           <motion.h1
-            className="bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl lg:text-5xl"
+            className="bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-2xl font-bold tracking-tight text-transparent sm:text-3xl lg:text-4xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
@@ -118,7 +118,7 @@ export function HeroSection({
           </motion.h1>
 
           <motion.p
-            className="mx-auto mt-6 max-w-2xl text-lg text-white/60 sm:text-xl md:mt-8 md:text-2xl"
+            className="mx-auto mt-6 max-w-2xl text-base text-white/60 sm:text-lg md:mt-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}

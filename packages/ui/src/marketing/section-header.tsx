@@ -42,11 +42,11 @@ export function SectionHeader({
           </span>
         </div>
       )}
-      <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
+      <h2 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl lg:text-3xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{subtitle}</p>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground">{subtitle}</p>
       )}
     </motion.div>
   );

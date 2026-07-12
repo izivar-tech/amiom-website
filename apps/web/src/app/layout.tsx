@@ -1,15 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import { COMPANY } from "@amiom/constants";
 import { GoogleAnalytics } from "@/lib/analytics";
 import { CookieConsentBanner } from "@/components/cookie-consent";
 import { createOrganizationJsonLd, createWebsiteJsonLd, createFinancialServiceJsonLd } from "@/lib/metadata";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
+const sourceSans = Source_Sans_3({
   variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "optional",
 });
 
 
@@ -97,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const financialServiceJsonLd = createFinancialServiceJsonLd();
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={sourceSans.variable}>
       <head>
         <script
           type="application/ld+json"

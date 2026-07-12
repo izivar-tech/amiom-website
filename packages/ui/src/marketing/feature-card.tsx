@@ -41,12 +41,12 @@ export function FeatureCard({
             <Icon className="h-6 w-6 text-primary transition-transform duration-300 group-hover:scale-110" />
           </div>
         )}
-        <h3 className="text-sm font-bold text-foreground">{title}</h3>
+        <h3 className="text-base font-bold text-foreground">{title}</h3>
         <CardContent className="flex-1 px-0 pt-2">
-          <p className="text-xs leading-relaxed text-muted-foreground">{description}</p>
+          <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
         </CardContent>
         {href && (
-          <div className="mt-3 flex items-center gap-1 text-xs font-semibold text-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
+          <div className="mt-3 flex items-center gap-1 text-sm font-semibold text-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
             Learn more
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5" />
           </div>
