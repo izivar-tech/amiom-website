@@ -115,6 +115,7 @@ export function HomeHero() {
                   src="/images/hero/hero.svg"
                   alt="Amiom loan advisors"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain object-center"
                   priority
                 />

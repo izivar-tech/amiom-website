@@ -13,7 +13,7 @@ export const COMPANY = {
     country: "India",
     pincode: "606604",
   },
-  website: "https://amiom.com",
+  website: "https://amiom.in",
   foundedYear: 2026,
   registeredName: "AMIOM CORPORATE FINANCE PRIVATE LIMITED",
   cin: "U64990TN2026PTC194318",

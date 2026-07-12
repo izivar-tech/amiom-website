@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SERVICE_SLUGS } from "@amiom/constants";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://amiom.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://amiom.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const serviceRoutes = SERVICE_SLUGS.map((slug) => ({

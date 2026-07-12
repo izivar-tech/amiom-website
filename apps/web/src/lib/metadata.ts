@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { COMPANY, BRAND } from "@amiom/constants";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://amiom.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://amiom.in";
 
 interface PageMetadataOptions {
   title: string;
