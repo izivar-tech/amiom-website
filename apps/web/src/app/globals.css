@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Scan monorepo packages so Tailwind detects utility classes used inside them */
+@source "../../../../packages/ui/src";
+@source "../../../../packages/constants/src";
+
 @theme {
   /* Brand Colors - derived from logo: #25ab5a, #fdc40c, #192b3d */
   --color-primary: oklch(0.62 0.17 155);

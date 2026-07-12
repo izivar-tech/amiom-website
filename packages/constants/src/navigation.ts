@@ -6,18 +6,21 @@ export interface NavItem {
 
 export const MAIN_NAV: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About Us", href: "/about" },
   {
     label: "Services",
     href: "/services",
     children: [
-      { label: "Corporate Finance", href: "/services/corporate-finance" },
-      { label: "Investment Advisory", href: "/services/investment-advisory" },
-      { label: "Mergers & Acquisitions", href: "/services/mergers-acquisitions" },
-      { label: "Capital Markets", href: "/services/capital-markets" },
+      { label: "Personal Loans", href: "/services/personal-loans" },
+      { label: "Home Loans", href: "/services/home-loans" },
+      { label: "Business Loans", href: "/services/business-loans" },
+      { label: "Loan Against Property", href: "/services/loan-against-property" },
+      { label: "Education Loans", href: "/services/education-loans" },
+      { label: "Vehicle Loans", href: "/services/vehicle-loans" },
+      { label: "Credit Cards", href: "/services/credit-cards" },
     ],
   },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const FOOTER_NAV = {
@@ -25,7 +28,15 @@ export const FOOTER_NAV = {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Contact", href: "/contact" },
+    { label: "Partner Banks", href: "/#partner-banks" },
+    { label: "Contact Us", href: "/contact" },
+  ],
+  services: [
+    { label: "Personal Loans", href: "/services/personal-loans" },
+    { label: "Home Loans", href: "/services/home-loans" },
+    { label: "Business Loans", href: "/services/business-loans" },
+    { label: "Loan Against Property", href: "/services/loan-against-property" },
+    { label: "Credit Cards", href: "/services/credit-cards" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },

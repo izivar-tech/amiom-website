@@ -13,6 +13,7 @@
   "dependencies": {
     "@amiom/constants": "workspace:*",
     "@amiom/ui": "workspace:*",
+    "@vercel/edge-config": "^1.4.3",
     "framer-motion": "^12.12.2",
     "lucide-react": "^0.511.0",
     "next": "^15.3.3",

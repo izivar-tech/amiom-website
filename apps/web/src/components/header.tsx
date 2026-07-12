@@ -4,7 +4,19 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  ChevronDown,
+  User,
+  Home,
+  Briefcase,
+  Landmark,
+  GraduationCap,
+  Car,
+  CreditCard,
+  Calculator,
+  type LucideIcon,
+} from "lucide-react";
 import { COMPANY, BRAND, MAIN_NAV, type NavItem } from "@amiom/constants";
 import {
   cn,
@@ -24,6 +36,16 @@ import {
   navigationMenuTriggerStyle,
   Separator,
 } from "@amiom/ui";
+
+const serviceIcons: Record<string, LucideIcon> = {
+  "personal-loans": User,
+  "home-loans": Home,
+  "business-loans": Briefcase,
+  "loan-against-property": Landmark,
+  "education-loans": GraduationCap,
+  "vehicle-loans": Car,
+  "credit-cards": CreditCard,
+};
 
 export function Header() {
   const [scrolled, setScrolled] = React.useState(false);
@@ -59,10 +81,10 @@ export function Header() {
           className="flex h-16 items-center justify-between md:h-20"
           aria-label="Main navigation"
         >
-          {/* Logo */}
+          {/* Logo — fixed width left */}
           <Link
             href="/"
-            className="flex items-center gap-3 transition-opacity hover:opacity-80"
+            className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-80"
             aria-label={`${COMPANY.shortName} - Home`}
           >
             <Image
@@ -73,71 +95,94 @@ export function Header() {
               className="h-9 w-9"
               priority
             />
-            <span className="text-xl font-bold text-foreground">{COMPANY.shortName}</span>
+            <span className="text-xl font-bold text-foreground">
+              {COMPANY.shortName}
+            </span>
           </Link>
 
-          {/* Desktop Navigation - shadcn NavigationMenu */}
-          <NavigationMenu className="hidden md:flex">
-            <NavigationMenuList>
-              {MAIN_NAV.map((item) =>
-                item.children ? (
-                  <NavigationMenuItem key={item.href}>
-                    <NavigationMenuTrigger
-                      className={cn(
-                        "bg-transparent",
-                        isActive(item.href) && "text-primary",
-                      )}
-                    >
-                      {item.label}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid w-[280px] gap-1 p-3">
-                        {item.children.map((child) => (
-                          <li key={child.href}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                href={child.href}
-                                className={cn(
-                                  "block select-none rounded-md p-3 text-sm leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                                  isActive(child.href) && "bg-accent text-accent-foreground",
-                                )}
-                              >
-                                <span className="font-medium">{child.label}</span>
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                ) : (
-                  <NavigationMenuItem key={item.href}>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        href={item.href}
+          {/* Desktop Navigation — centered, fixed position */}
+          <div className="hidden flex-1 items-center justify-center md:flex">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {MAIN_NAV.map((item) =>
+                  item.children ? (
+                    <NavigationMenuItem key={item.href}>
+                      <NavigationMenuTrigger
                         className={cn(
-                          navigationMenuTriggerStyle(),
                           "bg-transparent",
                           isActive(item.href) && "text-primary",
                         )}
                       >
                         {item.label}
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ),
-              )}
-            </NavigationMenuList>
-          </NavigationMenu>
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-1 p-4 md:grid-cols-2">
+                          {item.children.map((child) => {
+                            const slug = child.href.split("/").pop() ?? "";
+                            const Icon = serviceIcons[slug];
+                            return (
+                              <li key={child.href}>
+                                <NavigationMenuLink asChild>
+                                  <Link
+                                    href={child.href}
+                                    className={cn(
+                                      "flex items-center gap-3 select-none rounded-lg p-3 text-sm leading-none no-underline outline-none transition-colors hover:bg-primary/5 hover:text-primary focus:bg-primary/5 focus:text-primary",
+                                      isActive(child.href) &&
+                                        "bg-primary/5 text-primary",
+                                    )}
+                                  >
+                                    {Icon && (
+                                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                                        <Icon className="h-4 w-4 text-primary" />
+                                      </div>
+                                    )}
+                                    <span className="font-medium">
+                                      {child.label}
+                                    </span>
+                                  </Link>
+                                </NavigationMenuLink>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  ) : (
+                    <NavigationMenuItem key={item.href}>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href={item.href}
+                          className={cn(
+                            navigationMenuTriggerStyle(),
+                            "bg-transparent",
+                            isActive(item.href) && "text-primary",
+                          )}
+                        >
+                          {item.label}
+                        </Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ),
+                )}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <Button asChild size="sm">
-              <Link href="/contact">Get Started</Link>
+          {/* Desktop CTA — fixed width right */}
+          <div className="hidden shrink-0 md:block">
+            <Button
+              asChild
+              size="pill"
+              className="bg-[#192b3d] text-white shadow-md hover:bg-[#192b3d]/90"
+            >
+              <Link href="/contact">
+                <Calculator className="h-4 w-4" />
+                Get in Touch
+              </Link>
             </Button>
           </div>
 
-          {/* Mobile Menu - shadcn Sheet */}
+          {/* Mobile Menu */}
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
               <Button
@@ -178,8 +223,16 @@ export function Header() {
 
               <Separator className="my-4" />
 
-              <Button asChild className="w-full" onClick={() => setSheetOpen(false)}>
-                <Link href="/contact">Get Started</Link>
+              <Button
+                asChild
+                size="pill-lg"
+                className="w-full bg-[#192b3d] text-white hover:bg-[#192b3d]/90"
+                onClick={() => setSheetOpen(false)}
+              >
+                <Link href="/contact">
+                  <Calculator className="h-4 w-4" />
+                  Get in Touch
+                </Link>
               </Button>
             </SheetContent>
           </Sheet>
@@ -213,22 +266,32 @@ function MobileNavItem({
         >
           {item.label}
           <ChevronDown
-            className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")}
+            className={cn(
+              "h-4 w-4 transition-transform duration-200",
+              expanded && "rotate-180",
+            )}
           />
         </Button>
         {expanded && (
-          <div className="ml-4 flex flex-col gap-1 border-l border-border pl-2">
-            {item.children.map((child) => (
-              <Button
-                key={child.href}
-                variant="ghost"
-                asChild
-                className="justify-start text-sm text-muted-foreground"
-                onClick={onNavigate}
-              >
-                <Link href={child.href}>{child.label}</Link>
-              </Button>
-            ))}
+          <div className="ml-4 flex flex-col gap-1 border-l-2 border-primary/20 pl-3">
+            {item.children.map((child) => {
+              const slug = child.href.split("/").pop() ?? "";
+              const Icon = serviceIcons[slug];
+              return (
+                <Button
+                  key={child.href}
+                  variant="ghost"
+                  asChild
+                  className="justify-start gap-3 text-sm text-muted-foreground"
+                  onClick={onNavigate}
+                >
+                  <Link href={child.href}>
+                    {Icon && <Icon className="h-4 w-4 text-primary" />}
+                    {child.label}
+                  </Link>
+                </Button>
+              );
+            })}
           </div>
         )}
       </div>
@@ -239,7 +302,10 @@ function MobileNavItem({
     <Button
       variant="ghost"
       asChild
-      className={cn("justify-start text-base font-medium", isActive && "text-primary")}
+      className={cn(
+        "justify-start text-base font-medium",
+        isActive && "text-primary",
+      )}
       onClick={onNavigate}
     >
       <Link href={item.href}>{item.label}</Link>

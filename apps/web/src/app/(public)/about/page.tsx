@@ -1,73 +1,92 @@
 import type { Metadata } from "next";
 import { ABOUT_PAGE } from "@amiom/constants";
 import {
-  HeroSection,
   SectionHeader,
   ValueCard,
   CtaSection,
   Section,
   Container,
   Card,
-  CardContent,
   FadeIn,
-  Separator,
 } from "@amiom/ui";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
-  title: "About Us",
+  title: "About Us — Trusted DSA for Banks & NBFCs",
   description:
-    "Learn about Amiom Private Limited — our mission, vision, values, and commitment to delivering world-class corporate finance expertise.",
+    "Learn about Amiom Corporate Finance Private Limited — a registered Direct Selling Agent (DSA) helping individuals and businesses access the best loan products from leading banks and NBFCs in India.",
   path: "/about",
 });
 
 export default function AboutPage() {
-  const { hero, mission, vision, values, story } = ABOUT_PAGE;
+  const { mission, vision, values, story } = ABOUT_PAGE;
 
   return (
     <>
-      {/* Hero */}
-      <HeroSection
-        badge="About Us"
-        headline={hero.headline}
-        subheadline={hero.subheadline}
-        className="min-h-[50vh] md:min-h-[60vh]"
-      />
-
-      {/* Mission & Vision - Glass cards side by side */}
-      <Section>
-        <Container size="narrow">
-          <div className="grid gap-8 md:grid-cols-2">
+      {/* ── Our Story (header merged in) ── */}
+      <Section className="pb-8 pt-16 md:pb-10 md:pt-20">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
+            {/* Left — page identity + section label */}
             <FadeIn direction="left">
-              <Card className="h-full border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
-                <div className="mb-3 inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
-                  {mission.title}
-                </div>
-                <CardContent className="pt-2">
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+              <div className="lg:pt-1">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                  Who We Are
+                </p>
+                <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+                  About Amiom
+                </h1>
+                <div className="mt-4 h-px w-full bg-border/50" />
+                <h2 className="mt-4 text-base font-semibold text-foreground">Our Story</h2>
+                <div className="mt-2 h-0.5 w-8 rounded-full bg-primary" />
+              </div>
+            </FadeIn>
+            {/* Right — story content */}
+            <FadeIn direction="right">
+              <div className="space-y-4">
+                {story.paragraphs.map((paragraph, index) => (
+                  <p key={index} className="text-sm leading-relaxed text-muted-foreground">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── Mission & Vision ── */}
+      <Section className="bg-muted/30 pb-8 pt-8 md:pb-10 md:pt-10">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-2">
+            <FadeIn direction="left">
+              <Card className="h-full border-primary/20 bg-white">
+                <div className="p-6">
+                  <div className="mb-1 h-1 w-8 rounded-full bg-primary" />
+                  <h3 className="mt-3 text-base font-bold text-foreground">{mission.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {mission.description}
                   </p>
-                </CardContent>
+                </div>
               </Card>
             </FadeIn>
             <FadeIn direction="right">
-              <Card className="h-full border-accent-gold/20 bg-gradient-to-br from-accent-gold/5 to-transparent">
-                <div className="mb-3 inline-block rounded-lg bg-accent-gold/10 px-3 py-1 text-sm font-semibold text-foreground">
-                  {vision.title}
-                </div>
-                <CardContent className="pt-2">
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+              <Card className="h-full border-accent-gold/30 bg-white">
+                <div className="p-6">
+                  <div className="mb-1 h-1 w-8 rounded-full bg-accent-gold" />
+                  <h3 className="mt-3 text-base font-bold text-foreground">{vision.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {vision.description}
                   </p>
-                </CardContent>
+                </div>
               </Card>
             </FadeIn>
           </div>
         </Container>
       </Section>
 
-      {/* Values - Numbered value cards */}
-      <Section className="bg-muted/20">
+      {/* ── Core Values ── */}
+      <Section className="pb-8 pt-8 md:pb-10 md:pt-10">
         <Container>
           <SectionHeader badge="Our Foundation" title={values.sectionTitle} />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -83,30 +102,11 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* Story */}
-      <Section>
-        <Container size="narrow">
-          <FadeIn>
-            <SectionHeader badge="Our Journey" title={story.title} />
-            <div className="space-y-6">
-              {story.paragraphs.map((paragraph, index) => (
-                <FadeIn key={index} delay={index * 0.1}>
-                  <p className="text-lg leading-relaxed text-muted-foreground">{paragraph}</p>
-                  {index < story.paragraphs.length - 1 && (
-                    <Separator className="mt-6 opacity-30" />
-                  )}
-                </FadeIn>
-              ))}
-            </div>
-          </FadeIn>
-        </Container>
-      </Section>
-
-      {/* CTA */}
+      {/* ── CTA ── */}
       <CtaSection
-        headline="Ready to Work With Us?"
-        description="Let's discuss how Amiom can help your business achieve its financial goals."
-        action={{ label: "Contact Us", href: "/contact" }}
+        headline="Need a Loan? We Can Help."
+        description="Tell us what you need and our loan advisors will find the best options for you from our partner banks."
+        action={{ label: "Apply Now", href: "/contact" }}
       />
     </>
   );

@@ -9,54 +9,42 @@ import {
   ValueCard,
   Section,
   Container,
+  StaggerContainer,
+  StaggerItem,
 } from "@amiom/ui";
 import { createMetadata } from "@/lib/metadata";
+import { HomeHero } from "@/components/home-hero";
 
 export const metadata: Metadata = createMetadata({
-  title: "Amiom Private Limited — Corporate Finance Solutions That Drive Growth",
+  title:
+    "Amiom Corporate Finance — Personal Loans, Home Loans, Business Loans | DSA Partner",
   description:
-    "Empowering businesses with strategic corporate finance solutions, investment advisory, M&A, and capital market services across India.",
+    "Amiom is a trusted DSA partner for leading banks and NBFCs in India. Apply for Personal Loans, Home Loans, Business Loans, Loan Against Property, Education Loans, Vehicle Loans, and Credit Cards with competitive rates and quick approvals.",
   path: "/",
 });
 
-const STATS = [
-  { value: "100+", label: "Clients Served" },
-  { value: "500Cr+", label: "Transactions Facilitated" },
-  { value: "15+", label: "Years Experience" },
-  { value: "98%", label: "Client Satisfaction" },
-] as const;
-
 export default function HomePage() {
-  const { hero, services, whyUs, cta } = HOME_PAGE;
+  const { services, whyUs, partnerBanks, cta } = HOME_PAGE;
 
   return (
     <>
-      {/* Hero Section - 21st.dev animated hero */}
-      <HeroSection
-        badge="Corporate Finance Excellence"
-        headline={hero.headline}
-        subheadline={hero.subheadline}
-        primaryAction={hero.cta.primary}
-        secondaryAction={hero.cta.secondary}
-      />
+      {/* New split-layout hero matching design reference */}
+      <HomeHero />
 
-      {/* Stats Section */}
-      <StatsSection stats={STATS} />
-
-      {/* Services Section - Feature cards with hover effects */}
-      <Section className="bg-muted/20">
+      {/* Services Section */}
+      <Section id="services" className="pt-14 md:pt-20 pb-8 md:pb-10">
         <Container>
           <SectionHeader
-            badge="What We Do"
+            badge="What We Offer"
             title={services.sectionTitle}
             subtitle={services.sectionSubtitle}
           />
-          <FeatureGrid items={services.items} columns={4} />
+          <FeatureGrid items={services.items} columns={3} />
         </Container>
       </Section>
 
-      {/* Why Us Section - Value cards with numbered indicators */}
-      <Section>
+      {/* Why Choose Us */}
+      <Section className="pt-6 md:pt-8 pb-8 md:pb-10">
         <Container>
           <SectionHeader
             badge="Why Amiom"
@@ -76,8 +64,32 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* CTA Section - Gradient with animated blobs */}
-      <CtaSection headline={cta.headline} description={cta.description} action={cta.button} />
+      {/* Partner Banks */}
+      <Section id="partner-banks" spacing="sm" className="pb-0">
+        <Container>
+          <SectionHeader
+            badge="Our Network"
+            title={partnerBanks.sectionTitle}
+            subtitle={partnerBanks.sectionSubtitle}
+          />
+          <StaggerContainer className="flex flex-wrap items-center justify-center gap-4">
+            {partnerBanks.partners.map((partner) => (
+              <StaggerItem key={partner}>
+                <div className="rounded-xl border border-border/50 bg-white px-6 py-3.5 text-sm font-medium text-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md">
+                  {partner}
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </Container>
+      </Section>
+
+      {/* CTA */}
+      <CtaSection
+        headline={cta.headline}
+        description={cta.description}
+        action={cta.button}
+      />
     </>
   );
 }
