@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { HOME_PAGE } from "@amiom/constants";
 import {
-  HeroSection,
   SectionHeader,
   FeatureGrid,
   CtaSection,
-  StatsSection,
   ValueCard,
   Section,
   Container,

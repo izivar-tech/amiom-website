@@ -6,8 +6,6 @@ import {
   CtaSection,
   Section,
   Container,
-  Card,
-  CardContent,
   FadeIn,
 } from "@amiom/ui";
 import {

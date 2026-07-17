@@ -17,7 +17,7 @@ const leadSchema = z.object({
     .string()
     .min(2, "Full name must be at least 2 characters")
     .max(100)
-    .regex(/^[\p{L}\p{M}\s.'\-]+$/u, "Name should contain only letters"),
+    .regex(/^[\p{L}\p{M}\s.'-]+$/u, "Name should contain only letters"),
   phone: z
     .string()
     .min(1, "Phone number is required")

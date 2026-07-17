@@ -13,7 +13,7 @@ const leadSchema = z.object({
     .string()
     .min(2, "Full name must be at least 2 characters")
     .max(100)
-    .regex(/^[\p{L}\p{M}\s.'\-]+$/u, "Name should contain only letters"),
+    .regex(/^[\p{L}\p{M}\s.'-]+$/u, "Name should contain only letters"),
   phone: z
     .string()
     .min(1, "Phone number is required")
@@ -89,7 +89,7 @@ export function LeadForm() {
       if (result.success) {
         setSubmitted(true);
         if (typeof window !== "undefined" && "gtag" in window) {
-          (window as unknown as { gtag: (...args: unknown[]) => void }).gtag( // eslint-disable-line @typescript-eslint/no-explicit-any
+          (window as unknown as { gtag: (...args: unknown[]) => void }).gtag(
             "event",
             "generate_lead",
             { event_category: "contact", event_label: "loan_application" },
