@@ -5,13 +5,13 @@ import {
   Heading,
   Hr,
   Html,
-  Img,
   Link,
   Preview,
   Section,
   Text,
 } from "@react-email/components";
 import * as React from "react";
+import { BRAND, CONTACT_PAGE } from "@amiom/constants";
 
 interface LeadConfirmationProps {
   name: string;
@@ -44,13 +44,7 @@ export function LeadConfirmationEmail({
         {/* ── Header ── */}
         <Section style={header}>
           <Container style={headerInner}>
-            <Img
-              src={`${siteUrl}/images/logo/logo-white.svg`}
-              alt="Amiom Corporate Finance"
-              width="160"
-              height="40"
-              style={{ display: "block" }}
-            />
+            <Text style={logoText}>Amiom Corporate Finance</Text>
           </Container>
         </Section>
 
@@ -65,7 +59,7 @@ export function LeadConfirmationEmail({
             <Text style={para}>
               Thank you for reaching out to <strong>Amiom Corporate Finance</strong>.
               We've received your loan enquiry and our advisor will contact you on{" "}
-              <strong>{phone}</strong> within <strong>24 business hours</strong> with
+              <strong>+91-{phone}</strong> within <strong>{CONTACT_PAGE.advisorCallbackTime}</strong> with
               the best available offers.
             </Text>
 
@@ -80,7 +74,7 @@ export function LeadConfirmationEmail({
                 <SummaryRow label="Loan Type" value={loanType} />
                 {loanAmount && <SummaryRow label="Loan Amount" value={loanAmount} />}
                 {city && <SummaryRow label="City" value={city} />}
-                <SummaryRow label="Contact Number" value={phone} />
+                <SummaryRow label="Contact Number" value={`+91-${phone}`} />
               </tbody>
             </table>
 
@@ -92,9 +86,8 @@ export function LeadConfirmationEmail({
               <tbody>
                 {steps.map((step, i) => (
                   <tr key={i}>
-                    <td style={stepNum}>{i + 1}</td>
                     <td style={stepText}>
-                      <strong>{step.title}</strong> — {step.desc}
+                      <strong>{i + 1}. {step.title}</strong> — {step.desc}
                     </td>
                   </tr>
                 ))}
@@ -130,9 +123,6 @@ export function LeadConfirmationEmail({
             © {new Date().getFullYear()} Amiom Corporate Finance Private Limited
           </Text>
           <Text style={footerText}>
-            CIN: U64990TN2026PTC194318 · ROC Chennai
-          </Text>
-          <Text style={footerText}>
             Amiom is a registered Direct Selling Agent (DSA). It does not lend
             directly. Loan approval is subject to the lending institution's
             policies and your credit profile.
@@ -164,7 +154,7 @@ function SummaryRow({ label, value }: { label: string; value: string }) {
 const steps = [
   {
     title: "Advisor call",
-    desc: "Our loan advisor will call you within 24 business hours.",
+    desc: `Our loan advisor will call you within ${CONTACT_PAGE.advisorCallbackTime}.`,
   },
   {
     title: "Document checklist",
@@ -181,8 +171,8 @@ const steps = [
 ];
 
 // ── Styles ────────────────────────────────────────────────────────────────────
-const PRIMARY   = "#25ab5a";
-const NAVY      = "#192b3d";
+const PRIMARY   = BRAND.colors.primary;
+const NAVY      = BRAND.colors.dark;
 const TEXT      = "#1a1a2e";
 const MUTED     = "#6b7280";
 const BG        = "#f4f6f9";
@@ -204,6 +194,14 @@ const headerInner: React.CSSProperties = {
   maxWidth: "560px",
   margin: "0 auto",
   padding: "0 24px",
+};
+
+const logoText: React.CSSProperties = {
+  color: "#ffffff",
+  fontSize: "18px",
+  fontWeight: 700,
+  margin: 0,
+  letterSpacing: "0.01em",
 };
 
 const card: React.CSSProperties = {
@@ -271,22 +269,6 @@ const summaryValue: React.CSSProperties = {
   fontSize: "13px",
   fontWeight: 600,
   paddingBottom: "10px",
-};
-
-const stepNum: React.CSSProperties = {
-  backgroundColor: PRIMARY,
-  borderRadius: "50%",
-  color: "#ffffff",
-  fontSize: "12px",
-  fontWeight: 700,
-  height: "24px",
-  lineHeight: "24px",
-  textAlign: "center" as const,
-  verticalAlign: "top",
-  width: "24px",
-  minWidth: "24px",
-  paddingBottom: "12px",
-  paddingRight: "12px",
 };
 
 const stepText: React.CSSProperties = {

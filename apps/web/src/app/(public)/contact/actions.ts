@@ -3,7 +3,7 @@
 import { headers } from "next/headers";
 import { z } from "zod";
 import { render } from "@react-email/components";
-import { COMPANY } from "@amiom/constants";
+import { COMPANY, CONTACT_PAGE } from "@amiom/constants";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { LeadConfirmationEmail } from "@/emails/lead-confirmation";
 import { LeadNotificationEmail } from "@/emails/lead-notification";
@@ -143,7 +143,7 @@ export async function submitLead(formData: FormData): Promise<LeadResult> {
           `Hi ${name},`,
           ``,
           `Thank you for reaching out to Amiom Corporate Finance.`,
-          `We've received your enquiry for a ${loanType}. Our advisor will call you on ${phone} within 24 business hours.`,
+          `We've received your enquiry for a ${loanType}. Our advisor will call you on ${phone} within ${CONTACT_PAGE.advisorCallbackTime}.`,
           ``,
           loanAmount ? `Loan Amount: ${loanAmount}` : null,
           city ? `City: ${city}` : null,

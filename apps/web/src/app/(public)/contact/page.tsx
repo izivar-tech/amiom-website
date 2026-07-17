@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { COMPANY } from "@amiom/constants";
+import { COMPANY, CONTACT_PAGE } from "@amiom/constants";
 import { Section, Container, Card, FadeIn } from "@amiom/ui";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { createMetadata } from "@/lib/metadata";
@@ -26,7 +26,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Fill out the form and our loan advisors will get back to you within 24 hours with the best offers.
+              {CONTACT_PAGE.hero.subheadline}
             </p>
           </FadeIn>
         </Container>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                         <div>
                           <p className="text-xs text-muted-foreground">Business Hours</p>
                           <p className="mt-0.5 text-sm font-medium text-foreground">
-                            Mon – Sat, 9:00 AM – 6:00 PM
+                            {CONTACT_PAGE.businessHours}
                           </p>
                         </div>
                       </div>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                 {/* Response time note */}
                 <div className="rounded-xl border border-primary/20 bg-primary/5 p-4">
                   <p className="text-xs leading-relaxed text-muted-foreground">
-                    <span className="font-semibold text-primary">Quick response:</span> We typically respond within 2–4 business hours. For urgent queries, call us directly.
+                    <span className="font-semibold text-primary">Quick response:</span> We typically respond within {CONTACT_PAGE.responseTime}. For urgent queries, call us directly.
                   </p>
                 </div>
 

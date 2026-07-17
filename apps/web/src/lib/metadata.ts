@@ -10,6 +10,8 @@ interface PageMetadataOptions {
   ogImage?: string;
 }
 
+const DEFAULT_OG_IMAGE = "/images/og-image.png";
+
 export function createMetadata({
   title,
   description,
@@ -17,6 +19,7 @@ export function createMetadata({
   ogImage,
 }: PageMetadataOptions): Metadata {
   const url = `${SITE_URL}${path}`;
+  const image = ogImage ?? DEFAULT_OG_IMAGE;
 
   return {
     title,
@@ -31,14 +34,13 @@ export function createMetadata({
       siteName: COMPANY.name,
       locale: "en_IN",
       type: "website",
-      ...(ogImage && {
-        images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
-      }),
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [image],
     },
   };
 }

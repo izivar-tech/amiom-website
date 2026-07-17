@@ -173,7 +173,7 @@ export function Header() {
             <Button
               asChild
               size="pill"
-              className="bg-[#192b3d] text-white shadow-md hover:bg-[#192b3d]/90"
+              className="bg-dark-navy text-white shadow-md hover:bg-dark-navy/90"
             >
               <Link href="/contact">
                 <Calculator className="h-4 w-4" />
@@ -226,7 +226,7 @@ export function Header() {
               <Button
                 asChild
                 size="pill-lg"
-                className="w-full bg-[#192b3d] text-white hover:bg-[#192b3d]/90"
+                className="w-full bg-dark-navy text-white hover:bg-dark-navy/90"
                 onClick={() => setSheetOpen(false)}
               >
                 <Link href="/contact">

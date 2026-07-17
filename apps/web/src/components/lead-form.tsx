@@ -120,7 +120,7 @@ export function LeadForm() {
         <h3 className="text-xl font-bold text-foreground">Thank You!</h3>
         <p className="mt-2 max-w-md text-sm text-muted-foreground">
           We have received your application. Our loan advisor will contact you
-          within 24 hours with the best offers from our partner banks.
+          within {CONTACT_PAGE.advisorCallbackTime} with the best offers from our partner banks.
         </p>
         <Button
           className="mt-6"
@@ -290,11 +290,11 @@ export function LeadForm() {
       </Button>
 
       <p className="text-center text-xs text-muted-foreground">
-        By submitting, you agree to our{" "}
+        {CONTACT_PAGE.form.agreement.split("Privacy Policy")[0]}
         <a href="/privacy" className="underline hover:text-primary">
           Privacy Policy
-        </a>{" "}
-        and consent to being contacted by our team.
+        </a>
+        {CONTACT_PAGE.form.agreement.split("Privacy Policy")[1]}
       </p>
     </form>
   );

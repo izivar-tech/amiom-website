@@ -23,10 +23,10 @@ import {
 const loanProducts: { title: string; sub: string; icon: LucideIcon; iconBg: string; href: string }[] = [
   { title: "Personal Loans",        sub: "For Every Need",    icon: User,          iconBg: "bg-primary",     href: "/services/personal-loans"       },
   { title: "Home Loans",            sub: "Build Your Dreams", icon: Home,          iconBg: "bg-accent-gold", href: "/services/home-loans"            },
-  { title: "Business Loans",        sub: "Fuel Your Growth",  icon: Briefcase,     iconBg: "bg-[#192b3d]",  href: "/services/business-loans"        },
+  { title: "Business Loans",        sub: "Fuel Your Growth",  icon: Briefcase,     iconBg: "bg-dark-navy",  href: "/services/business-loans"        },
   { title: "Loan Against Property", sub: "Unlock Your Value", icon: Landmark,      iconBg: "bg-primary",     href: "/services/loan-against-property" },
   { title: "Education Loans",       sub: "Invest in Future",  icon: GraduationCap, iconBg: "bg-accent-gold", href: "/services/education-loans"       },
-  { title: "Vehicle Loans",         sub: "Drive Your Dreams", icon: Car,           iconBg: "bg-[#192b3d]",  href: "/services/vehicle-loans"         },
+  { title: "Vehicle Loans",         sub: "Drive Your Dreams", icon: Car,           iconBg: "bg-dark-navy",  href: "/services/vehicle-loans"         },
 ];
 
 const bottomFeatures: { icon: LucideIcon; title: string; sub: string }[] = [
@@ -62,7 +62,7 @@ export function HomeHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-2xl font-bold leading-[1.15] tracking-tight text-[#192b3d] sm:text-3xl lg:text-4xl"
+              className="text-2xl font-bold leading-[1.15] tracking-tight text-dark-navy sm:text-3xl lg:text-4xl"
             >
               Smart Loans.
               <br />
@@ -75,10 +75,10 @@ export function HomeHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-6 max-w-md text-base leading-relaxed text-[#64748b]"
+              className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground"
             >
               Amiom Corporate Finance Private Limited is a trusted{" "}
-              <strong className="font-semibold text-[#192b3d]">
+              <strong className="font-semibold text-dark-navy">
                 DSA partner for leading banks
               </strong>
               , providing tailor-made loan solutions for every goal in your life.
@@ -92,7 +92,7 @@ export function HomeHero() {
             >
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 rounded-full bg-[#192b3d] px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#192b3d]/90 hover:shadow-xl active:scale-[0.97]"
+                className="inline-flex items-center gap-2 rounded-full bg-dark-navy px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-dark-navy/90 hover:shadow-xl active:scale-[0.97]"
               >
                 Explore Our Services
                 <ArrowRight className="h-4 w-4" />
@@ -147,10 +147,10 @@ export function HomeHero() {
                     <Icon className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-max">
-                    <p className="text-sm font-bold text-[#192b3d] transition-colors group-hover:text-primary">
+                    <p className="text-sm font-bold text-dark-navy transition-colors group-hover:text-primary">
                       {product.title}
                     </p>
-                    <p className="text-xs text-[#64748b]">{product.sub}</p>
+                    <p className="text-xs text-muted-foreground">{product.sub}</p>
                   </div>
                 </Link>
               </motion.div>
@@ -162,7 +162,7 @@ export function HomeHero() {
       {/* ── Bottom Feature Strip ── */}
       <div className="mt-0 flex flex-col lg:flex-row">
         {/* Dark navy */}
-        <div className="flex flex-1 flex-wrap items-center justify-around gap-4 bg-[#192b3d] px-6 py-4">
+        <div className="flex flex-1 flex-wrap items-center justify-around gap-4 bg-dark-navy px-6 py-4">
           {bottomFeatures.map((feat, i) => {
             const Icon = feat.icon;
             return (

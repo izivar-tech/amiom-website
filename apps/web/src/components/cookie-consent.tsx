@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie } from "lucide-react";
+import { Button } from "@amiom/ui";
 import Link from "next/link";
 
 const CONSENT_KEY = "amiom_cookie_consent";
@@ -37,8 +38,7 @@ export function CookieConsentBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          style={{ backgroundColor: "#192b3d" }}
-          className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 px-4 py-4 shadow-2xl"
+          className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-dark-navy px-4 py-4 shadow-2xl"
         >
           <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-start gap-3">
@@ -54,18 +54,20 @@ export function CookieConsentBanner() {
               </p>
             </div>
             <div className="flex shrink-0 items-center gap-3">
-              <button
+              <Button
+                variant="outline"
+                size="pill"
                 onClick={deny}
-                className="rounded-full border border-white/20 px-5 py-2 text-sm font-medium text-white/65 transition-all hover:border-white/40 hover:text-white"
+                className="border-white/20 text-white/65 hover:border-white/40 hover:bg-transparent hover:text-white"
               >
                 Decline
-              </button>
-              <button
+              </Button>
+              <Button
+                size="pill"
                 onClick={accept}
-                className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-primary/90 active:scale-[0.97]"
               >
                 Accept
-              </button>
+              </Button>
             </div>
           </div>
         </motion.div>

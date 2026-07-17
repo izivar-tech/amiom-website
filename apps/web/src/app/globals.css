@@ -9,6 +9,9 @@
   --color-primary: oklch(0.62 0.17 155);
   --color-primary-foreground: oklch(0.99 0 0);
 
+  --color-dark-navy: #192b3d;
+  --color-dark-navy-foreground: #ffffff;
+
   --color-accent-gold: oklch(0.82 0.16 85);
   --color-accent-gold-foreground: oklch(0.25 0.04 250);
 

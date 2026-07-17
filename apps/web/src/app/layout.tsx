@@ -62,11 +62,20 @@ export const metadata: Metadata = {
     siteName: COMPANY.name,
     title: `${COMPANY.name} — ${COMPANY.tagline}`,
     description: COMPANY.description,
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${COMPANY.name} — ${COMPANY.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: COMPANY.name,
     description: COMPANY.description,
+    images: ["/images/og-image.png"],
   },
   robots: {
     index: true,

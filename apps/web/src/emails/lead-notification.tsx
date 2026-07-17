@@ -11,6 +11,7 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
+import { BRAND } from "@amiom/constants";
 
 interface LeadNotificationProps {
   name: string;
@@ -161,8 +162,8 @@ function Row({
 }
 
 // ── Styles ────────────────────────────────────────────────────────────────────
-const PRIMARY = "#25ab5a";
-const NAVY    = "#192b3d";
+const PRIMARY = BRAND.colors.primary;
+const NAVY    = BRAND.colors.dark;
 const TEXT    = "#1a1a2e";
 const MUTED   = "#6b7280";
 const BG      = "#f4f6f9";
