@@ -1,0 +1,39 @@
+{
+  "service-rates": {
+    "personal-loans": {
+      "loanAmount": "₹50,000 to ₹40 Lakhs",
+      "interestRate": "10.49% onwards",
+      "tenure": "12 to 60 months"
+    },
+    "home-loans": {
+      "loanAmount": "Up to ₹10 Crore",
+      "interestRate": "8.35% onwards",
+      "tenure": "Up to 30 years"
+    },
+    "business-loans": {
+      "loanAmount": "₹1 Lakh to ₹5 Crore",
+      "interestRate": "14% onwards",
+      "tenure": "12 to 60 months"
+    },
+    "loan-against-property": {
+      "loanAmount": "Up to 70% of property value",
+      "interestRate": "9.5% onwards",
+      "tenure": "Up to 20 years"
+    },
+    "education-loans": {
+      "loanAmount": "Up to ₹1.5 Crore",
+      "interestRate": "8.5% onwards",
+      "tenure": "Up to 15 years (after moratorium)"
+    },
+    "vehicle-loans": {
+      "loanAmount": "Up to ₹1 Crore",
+      "interestRate": "8.5% onwards",
+      "tenure": "12 to 84 months"
+    },
+    "credit-cards": {
+      "loanAmount": "Credit limit based on income",
+      "interestRate": "N/A (revolving credit)",
+      "tenure": "N/A"
+    }
+  }
+}

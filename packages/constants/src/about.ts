@@ -2,49 +2,49 @@ export const ABOUT_PAGE = {
   hero: {
     headline: "About Amiom",
     subheadline:
-      "Building a future where every business has access to world-class corporate finance expertise.",
+      "We are a registered Direct Selling Agent (DSA) bridging the gap between customers and India's leading banks and financial institutions.",
   },
   mission: {
     title: "Our Mission",
     description:
-      "To empower businesses with innovative, technology-driven financial solutions that unlock growth, create value, and foster long-term prosperity.",
+      "To make financial products accessible to everyone by connecting individuals and businesses with the right loan products from the right lenders — quickly, transparently, and hassle-free.",
   },
   vision: {
     title: "Our Vision",
     description:
-      "To be India's most trusted corporate finance partner, known for integrity, innovation, and impact.",
+      "To become India's most trusted loan distribution partner, known for customer-first service, transparency, and strong banking partnerships.",
   },
   values: {
     sectionTitle: "Our Core Values",
     items: [
       {
-        title: "Integrity",
+        title: "Transparency",
         description:
-          "We uphold the highest standards of professional ethics and transparency in everything we do.",
+          "No hidden charges, no surprises. We believe in clear communication about rates, fees, and terms from day one.",
       },
       {
-        title: "Innovation",
+        title: "Customer First",
         description:
-          "We embrace technology and creative thinking to deliver forward-looking financial solutions.",
+          "Your financial needs drive everything we do. We match you with the best product, not just the most convenient one for us.",
       },
       {
-        title: "Excellence",
+        title: "Trust",
         description:
-          "We are committed to delivering exceptional results that exceed client expectations.",
+          "We have built strong partnerships with leading banks and NBFCs, earning their trust through consistent performance and compliance.",
       },
       {
-        title: "Partnership",
+        title: "Speed",
         description:
-          "We build lasting relationships founded on mutual trust, respect, and shared success.",
+          "We respect your time. Our streamlined processes and digital-first approach ensure faster approvals and quicker disbursals.",
       },
     ],
   },
   story: {
     title: "Our Story",
     paragraphs: [
-      "Amiom Private Limited was founded with a clear vision: to bridge the gap between businesses and the financial expertise they need to thrive in an increasingly complex marketplace.",
-      "Our team of seasoned professionals brings together deep domain expertise in corporate finance, investment banking, and strategic advisory. We leverage cutting-edge technology to deliver data-driven insights and solutions.",
-      "Today, Amiom stands as a trusted partner to businesses across industries, helping them navigate financial complexities, seize growth opportunities, and build sustainable value for all stakeholders.",
+      "Amiom Corporate Finance Private Limited was incorporated in June 2026 with a simple insight: getting the right loan should not be complicated. Too many people struggle with confusing paperwork, opaque interest rates, and running between banks to find the best deal.",
+      "As a registered DSA partner with leading banks and NBFCs, we bring multiple loan options under one roof. Our team of experienced loan advisors understands the lending landscape and helps customers navigate it with confidence.",
+      "Headquartered in Tiruvannamalai, Tamil Nadu, Amiom serves customers across the region, helping them secure personal loans, home loans, business financing, and more — all with a commitment to transparency, speed, and the best possible terms.",
     ],
   },
 } as const;

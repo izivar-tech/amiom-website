@@ -4,7 +4,6 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { cn } from "../lib/utils";
 import { Container } from "../components/container";
-import { Separator } from "../components/separator";
 
 interface StatItem {
   value: string;
@@ -18,33 +17,37 @@ interface StatsSectionProps {
 
 export function StatsSection({ stats, className }: StatsSectionProps) {
   return (
-    <section className={cn("border-y bg-muted/30 py-12 md:py-16", className)}>
+    <section className={cn("relative -mt-16 z-20 pb-8", className)}>
       <Container>
-        <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-0">
-          {stats.map((stat, index) => (
-            <React.Fragment key={stat.label}>
-              {index > 0 && (
-                <Separator
-                  orientation="vertical"
-                  className="mx-8 hidden h-16 md:block"
-                />
-              )}
-              {index > 0 && <Separator className="w-16 md:hidden" />}
+        <motion.div
+          className="mx-auto max-w-5xl rounded-2xl border border-border/60 bg-white/80 p-8 shadow-xl shadow-black/5 backdrop-blur-xl md:p-10"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+        >
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4">
+            {stats.map((stat, index) => (
               <motion.div
-                className="text-center"
+                key={stat.label}
+                className={cn(
+                  "relative text-center",
+                  index < stats.length - 1 &&
+                    "md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-12 md:after:-translate-y-1/2 md:after:w-px md:after:bg-border",
+                )}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
               >
-                <p className="text-4xl font-bold tracking-tight text-primary md:text-5xl">
+                <p className="text-3xl font-bold tracking-tight text-primary md:text-4xl">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-sm font-medium text-muted-foreground">{stat.label}</p>
+                <p className="mt-1 text-sm font-medium text-muted-foreground">
+                  {stat.label}
+                </p>
               </motion.div>
-            </React.Fragment>
-          ))}
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </Container>
     </section>
   );

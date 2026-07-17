@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
+/* Scan monorepo packages so Tailwind detects utility classes used inside them */
+@source "../../../../packages/ui/src";
+@source "../../../../packages/constants/src";
+
 @theme {
   /* Brand Colors - derived from logo: #25ab5a, #fdc40c, #192b3d */
   --color-primary: oklch(0.62 0.17 155);
   --color-primary-foreground: oklch(0.99 0 0);
+
+  --color-dark-navy: #192b3d;
+  --color-dark-navy-foreground: #ffffff;
 
   --color-accent-gold: oklch(0.82 0.16 85);
   --color-accent-gold-foreground: oklch(0.25 0.04 250);
@@ -34,7 +41,7 @@
   --color-error: oklch(0.58 0.22 25);
 
   /* Typography */
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Source Sans 3", "Source Sans Pro", ui-sans-serif, system-ui, sans-serif;
 
   /* Spacing Scale */
   --spacing-section: 6rem;
