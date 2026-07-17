@@ -10,7 +10,7 @@ const sourceSans = Source_Sans_3({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "600", "700"],
-  display: "optional",
+  display: "swap",
 });
 
 

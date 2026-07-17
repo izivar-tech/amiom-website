@@ -112,7 +112,7 @@ export function HomeHero() {
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <Image
-                  src="/images/hero/hero.svg"
+                  src="/images/hero/hero.webp"
                   alt="Amiom loan advisors"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
